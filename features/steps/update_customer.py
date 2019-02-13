@@ -1,4 +1,5 @@
-from behave import when, then, given
+from behave import when
+
 
 @when('I update customer "{id}" to "{name}"')
 def update_customer(context, id, name):
