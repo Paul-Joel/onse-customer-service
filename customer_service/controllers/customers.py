@@ -60,10 +60,10 @@ def update_customer(customer_id):
 
     CREATE_PAYLOAD_SCHEMA.validate(body)
 
-    customer = Customer(
-        customer_id=int(customer_id),
-        first_name=body['firstName'],
-        surname=body['surname'])
+    customer=commands.get_customer(int(customer_id), customer_repository)
+
+    customer.first_name=body['firstName']
+    customer.surname=body['surname']
 
     commands.update_customer(
         customer=customer,
