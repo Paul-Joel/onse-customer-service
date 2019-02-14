@@ -8,5 +8,7 @@ def update_customer(context, id, name):
         '/customers/' + id,
         json={'firstName': first_name, 'surname': surname})
 
-    assert response.status_code == 201, response.status_code
-    context.customer_id = response.get_json()['customerId']
+    assert response.status_code == 200, response.status_code
+    json = response.get_json()
+    if "customerId" in json:
+        context.customer_id = json['customerId']
