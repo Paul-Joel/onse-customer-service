@@ -27,11 +27,9 @@ def fetch_customer(context, customer_id):
 @then('I should see customer "{expected_name}"')
 def assert_customer(context, expected_name):
     response = context.response
-    print(response)
     assert response.status_code == 200, response.status_code
     assert response.is_json
     body = response.get_json()
-    print(body)
     assert f"{body['firstName']} {body['surname']}" == expected_name
 
 

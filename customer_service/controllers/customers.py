@@ -61,7 +61,7 @@ def update_customer(customer_id):
     CREATE_PAYLOAD_SCHEMA.validate(body)
 
     customer = Customer(
-        customer_id=customer_id,
+        customer_id=int(customer_id),
         first_name=body['firstName'],
         surname=body['surname'])
 

@@ -11,9 +11,6 @@ class MockCustomerRepository:
             self.last_id = self.last_id + 1
             customer.customer_id = self.last_id
 
-        print(customer.first_name)
-        print(customer.surname)
-        print(customer.customer_id)
         self.customers[customer.customer_id] = customer
 
     def fetch_by_id(self, id):
